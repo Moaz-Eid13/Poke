@@ -1,7 +1,12 @@
-import basic
+import Poke
 
 while True:
-    text = input('basic > ')
-    result, error = basic.run('<stdin>', text)
+    text = input('Poke > ')
+    if text.strip() == "": continue
+    result, error = Poke.run('<stdin>', text)
     if error: print(error.as_string())
-    else: print(result)
+    elif result:
+        if len(result.elements) == 1:
+            print(repr(result.elements[0]))
+        else:
+            print(repr(result))
