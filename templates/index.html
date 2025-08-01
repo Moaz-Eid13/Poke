@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke Programming Language - Online Interpreter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Poke Programming Language</h1>
+            <p>A simple, interpreted language inspired by Python and BASIC with Pokémon flair!</p>
+            <nav>
+                <a href="/" class="nav-link active">Try It</a>
+                <a href="/documentation" class="nav-link">Documentation</a>
+                <a href="https://github.com" class="nav-link" target="_blank">GitHub</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="editor-section">
+                <div class="editor-header">
+                    <h2>Code Editor</h2>
+                    <div class="editor-controls">
+                        <button id="runBtn" class="btn btn-primary">
+                            <span class="btn-icon">▶</span>
+                            Run Code
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                            <span class="btn-icon">🗑</span>
+                            Clear
+                        </button>
+                        <button id="exampleBtn" class="btn btn-secondary">
+                            <span class="btn-icon">📝</span>
+                            Load Example
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="codeEditor" placeholder="# Write your Poke code here!
+# Example:
+mon greeting = &quot;Hello, Poke!&quot;
+print(greeting)
+
+# Try a function:
+rotom add(a, b) -> a + b
+print(add(5, 3))"></textarea>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="output-header">
+                    <h2>Output</h2>
+                    <button id="clearOutputBtn" class="btn btn-small">Clear Output</button>
+                </div>
+                <div id="output" class="output-container">
+                    <div class="welcome-message">
+                        Welcome to Poke! 🎯<br>
+                        Write your code above and click "Run Code" to see the results here.
+                    </div>
+                </div>
+            </div>
+
+            <div class="examples-section">
+                <h2>Quick Examples</h2>
+                <div class="examples-grid">
+                    <div class="example-card" data-example="hello">
+                        <h3>Hello World</h3>
+                        <p>Basic printing and variables</p>
+                    </div>
+                    <div class="example-card" data-example="factorial">
+                        <h3>Factorial Function</h3>
+                        <p>Recursive function example</p>
+                    </div>
+                    <div class="example-card" data-example="fibonacci">
+                        <h3>Fibonacci Sequence</h3>
+                        <p>Loops and lists in action</p>
+                    </div>
+                    <div class="example-card" data-example="calculator">
+                        <h3>Simple Calculator</h3>
+                        <p>Functions and conditionals</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h2>Language Features</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>🔢 Data Types</h3>
+                        <p>Numbers, strings, and lists with intuitive operations</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎮 Control Flow</h3>
+                        <p>if/elif/else statements, for/while loops</p>
+                    </div>
+                    <div class="feature">
+                        <h3>⚡ Functions</h3>
+                        <p>First-class functions with the 'rotom' keyword</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🛠 Built-ins</h3>
+                        <p>Print, input, list operations, and more</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>MoazEid13. Made with ❤️ for learning and fun!</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
