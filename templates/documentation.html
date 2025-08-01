@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke Language Documentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Poke Programming Language</h1>
+            <p>Complete language documentation and reference</p>
+            <nav>
+                <a href="/" class="nav-link">Try It</a>
+                <a href="/documentation" class="nav-link active">Documentation</a>
+                <a href="https://github.com" class="nav-link" target="_blank">GitHub</a>
+            </nav>
+        </header>
+
+        <main class="documentation">
+            <div class="doc-sidebar">
+                <h3>Contents</h3>
+                <ul class="doc-nav">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#syntax">Language Syntax</a></li>
+                    <li><a href="#data-types">Data Types</a></li>
+                    <li><a href="#operators">Operators</a></li>
+                    <li><a href="#control-flow">Control Flow</a></li>
+                    <li><a href="#functions">Functions</a></li>
+                    <li><a href="#built-ins">Built-in Functions</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                </ul>
+            </div>
+
+            <div class="doc-content">
+                <section id="introduction">
+                    <h2>Introduction</h2>
+                    <p><strong>Poke</strong> is a simple, interpreted language designed for learning purposes and fun. It features familiar control structures, first-class functions, built-in data types, and a minimal syntax inspired by Python and BASIC with some Pokémon flair.</p>
+                    <p><strong>Version:</strong> 1.0.0</p>
+                </section>
+
+                <section id="getting-started">
+                    <h2>Getting Started</h2>
+                    <h3>Installation</h3>
+                    <ol>
+                        <li>Ensure you have Python 3.7+ installed on your system.</li>
+                        <li>Place <code>Poke.py</code> in your project directory.</li>
+                        <li>Run a .poke script: <code>python Poke.py &lt;filename&gt;.poke</code></li>
+                    </ol>
+                    <h3>REPL Mode</h3>
+                    <p>Launch an interactive Poke shell: <code>python shell.py</code></p>
+                </section>
+
+                <section id="syntax">
+                    <h2>Language Syntax</h2>
+                    <h3>Comments</h3>
+                    <p>Single-line comments begin with <code>#</code>:</p>
+                    <pre><code># This is a comment</code></pre>
+
+                    <h3>Variables</h3>
+                    <p>Declare and assign variables with the <code>mon</code> keyword:</p>
+                    <pre><code>mon x = 10
+mon msg = "Hello, Poke!"</code></pre>
+                    <p>Variable names may contain letters, digits, and underscores, but must start with a letter.</p>
+                </section>
+
+                <section id="data-types">
+                    <h2>Data Types</h2>
+                    <ul>
+                        <li><strong>Integer:</strong> <code>123</code></li>
+                        <li><strong>Float:</strong> <code>3.14</code></li>
+                        <li><strong>String:</strong> Double-quoted, supporting escape sequences (\n, \t, \\, \"):
+                            <pre><code>mon s = "Line1\nLine2"</code></pre>
+                        </li>
+                        <li><strong>List (Array):</strong> Square brackets, comma-separated:
+                            <pre><code>mon nums = [1, 2, 3, 4]</code></pre>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="operators">
+                    <h2>Operators</h2>
+                    <ul>
+                        <li><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (modulo), <code>^</code> (power)</li>
+                        <li><strong>Comparison:</strong> <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
+                        <li><strong>Logical:</strong> <code>and</code>, <code>or</code>, <code>not</code></li>
+                        <li><strong>String concatenation:</strong> <code>+</code></li>
+                    </ul>
+                </section>
+
+                <section id="control-flow">
+                    <h2>Control Flow</h2>
+                    <h3>Conditional Statements</h3>
+                    <pre><code>if x > 0 then
+    print("Positive")
+elif x < 0 then
+    print("Negative")
+else
+    print("Zero")
+end</code></pre>
+
+                    <h3>Loops</h3>
+                    <h4>For Loop:</h4>
+                    <pre><code>for i = 0 to 5 step 1 then
+    print(i)
+end</code></pre>
+
+                    <h4>While Loop:</h4>
+                    <pre><code>while n > 1 then
+    n = n - 1
+end</code></pre>
+                </section>
+
+                <section id="functions">
+                    <h2>Functions</h2>
+                    <p>Define functions with <code>rotom</code>, name (optional), argument list, and either <code>-></code> for single expression or newline+end:</p>
+                    
+                    <h3>Single-expression function:</h3>
+                    <pre><code>rotom add(a, b) -> a + b
+mon result = add(2, 3)</code></pre>
+
+                    <h3>Multi-statement function:</h3>
+                    <pre><code>rotom greet(name)
+    print("Hello, " + name)
+end
+
+greet("World")</code></pre>
+
+                    <h3>Return Values:</h3>
+                    <pre><code>rotom max(a, b)
+    if a > b then
+        return a
+    else
+        return b
+    end
+end</code></pre>
+                </section>
+
+                <section id="built-ins">
+                    <h2>Built-in Values & Functions</h2>
+                    
+                    <h3>Built-in Values</h3>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>null</code></td>
+                                <td>Represents no value</td>
+                            </tr>
+                            <tr>
+                                <td><code>true</code></td>
+                                <td>Boolean true (1)</td>
+                            </tr>
+                            <tr>
+                                <td><code>false</code></td>
+                                <td>Boolean false (0)</td>
+                            </tr>
+                            <tr>
+                                <td><code>pi</code></td>
+                                <td>3.141592653589793</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Built-in Functions</h3>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Function</th>
+                                <th>Arguments</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>print(value)</code></td>
+                                <td>value</td>
+                                <td>Outputs to console, returns null</td>
+                            </tr>
+                            <tr>
+                                <td><code>print_ret(value)</code></td>
+                                <td>value</td>
+                                <td>Returns string representation without printing</td>
+                            </tr>
+                            <tr>
+                                <td><code>input()</code></td>
+                                <td>—</td>
+                                <td>Reads a line, returns String</td>
+                            </tr>
+                            <tr>
+                                <td><code>input_int()</code></td>
+                                <td>—</td>
+                                <td>Reads and returns Number</td>
+                            </tr>
+                            <tr>
+                                <td><code>clear()</code></td>
+                                <td>—</td>
+                                <td>Clears the console</td>
+                            </tr>
+                            <tr>
+                                <td><code>is_number(v)</code></td>
+                                <td>v</td>
+                                <td>true if Number</td>
+                            </tr>
+                            <tr>
+                                <td><code>is_string(v)</code></td>
+                                <td>v</td>
+                                <td>true if String</td>
+                            </tr>
+                            <tr>
+                                <td><code>is_list(v)</code></td>
+                                <td>v</td>
+                                <td>true if List</td>
+                            </tr>
+                            <tr>
+                                <td><code>is_rotom(v)</code></td>
+                                <td>v</td>
+                                <td>true if Function</td>
+                            </tr>
+                            <tr>
+                                <td><code>append(list, value)</code></td>
+                                <td>list, value</td>
+                                <td>Appends element, returns null</td>
+                            </tr>
+                            <tr>
+                                <td><code>pop(list, index)</code></td>
+                                <td>list, index</td>
+                                <td>Removes and returns element</td>
+                            </tr>
+                            <tr>
+                                <td><code>extend(listA, listB)</code></td>
+                                <td>listA, listB</td>
+                                <td>Concatenates lists, returns null</td>
+                            </tr>
+                            <tr>
+                                <td><code>len(x)</code></td>
+                                <td>x (list or string)</td>
+                                <td>Length as Number</td>
+                            </tr>
+                            <tr>
+                                <td><code>run(fn)</code></td>
+                                <td>fn (String)</td>
+                                <td>Executes external .poke script, returns null</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="examples">
+                    <h2>Examples</h2>
+                    
+                    <h3>Factorial</h3>
+                    <pre><code>rotom fact(n) ->
+    if n == 0 then 1 else n * fact(n - 1) end
+
+print(fact(5))  # 120</code></pre>
+
+                    <h3>Fibonacci Sequence</h3>
+                    <pre><code>mon fibs = [0, 1]
+for i = 2 to 10 then
+    append(fibs, fibs[i-1] + fibs[i-2])
+end
+print(fibs)</code></pre>
+
+                    <h3>Simple Calculator</h3>
+                    <pre><code>rotom calc(op, a, b)
+    if op == "+" then
+        return a + b
+    elif op == "-" then
+        return a - b
+    elif op == "*" then
+        return a * b
+    elif op == "/" then
+        return a / b
+    else
+        return "Unknown operation"
+    end
+end
+
+print(calc("+", 10, 5))  # 15
+print(calc("*", 3, 4))   # 12</code></pre>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Poke Programming Language. Made with ❤️ for learning and fun!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.doc-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.doc-nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
